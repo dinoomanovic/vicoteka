@@ -1,5 +1,6 @@
 <?php
-namespace app\controllers;use Yii;
+namespace app\controllers;
+use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -27,8 +28,27 @@ class ViceviController extends Controller
   }
 public function actionIndex()
 {
+return $this->render('index');
+}
+public function actionCategory()
+{
 
 }
+public function actionCategoryJoke()
+{
 
+}
+public function actionComment()
+{
+
+}
+public function actionJoke()
+{
+
+}
+public function actionUser()
+{
+
+}
 
 }
