@@ -3,6 +3,13 @@ body {
     height: 100%;
 }
 
+hr{
+    border-style: inset;
+    border-width: 1px;
+}
+
+
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -14,6 +21,15 @@ body {
     padding: 70px 15px 20px;
 }
 
+.login{
+
+    margin-top: 100px;
+    position: relative;
+    left: 40%;
+    width: 300px;
+    height: 400px;
+}
+
 .login_button{
 
     color: white;
@@ -21,14 +37,16 @@ body {
     background-color: blue;
     width: 100px;
     height: 30px;
-    border-color: white;
-    border-width: 3px;
-    border-radius: 10px;
+    border-style: none;
+    //border-color: white;
+    //border-width: 3px;
+    border-radius: 5px;
 }
 
 .login_button:hover{
 
     color: blue;
+    border-style: groove;
     background-color: white;
     border-color: blue; 
 }
