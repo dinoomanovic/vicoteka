@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LogForm;
 use app\models\ContactForm;
 use app\models\Account;
+use app\models\Category;
 
 class SiteController extends Controller
 {
@@ -119,6 +120,7 @@ class SiteController extends Controller
 
 public function actionCategory()
 {
-  return $this->render('category');
+  $category=new Category();
+  return $this->render('category',['category'=>$category]);
 }
 }
