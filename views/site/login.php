@@ -13,8 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= $form->field($model, 'password')->passwordInput() ?>
 
 <?= Html::submitButton('Login', array('name'=>'login', 'class'=>'login_button')); ?>
-<<<<<<< HEAD
-=======
+
 
 </div>
->>>>>>> origin/master
