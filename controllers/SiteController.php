@@ -6,8 +6,9 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
+use app\models\LogForm;
 use app\models\ContactForm;
+use app\models\Account;
 
 class SiteController extends Controller
 {
@@ -47,9 +48,27 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
-    {
-        return $this->render('test');
+    public function actionIndex(){
+        $user = new Account();
+        $model = new LogForm();
+
+        if( $model->load(Yii::$app->request->post()) && $model->validate() ){
+
+            if(isset($_POST['login'])){
+
+                $user = Account::find()->where(['nickname'=>$model->username])->one();
+
+                if( $user && ($model->username == $user->nickname) && ($model->password == $user->password) ){
+
+                   return $this->render('success',['user'=>$user]);
+                }
+                else{
+
+                    return $this->render('fail');
+                }
+            }    
+        }
+    return $this->render('login',['model'=>$model]);
     }
 
     public function actionLogin()
