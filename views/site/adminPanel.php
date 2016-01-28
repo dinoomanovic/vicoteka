@@ -6,6 +6,7 @@ use yii\captcha\Captcha;
 $this->title = 'Admin Panel';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<<<<<<< HEAD
 <div class="login-form">
 <?php $form = ActiveForm::begin(); ?>
 <h1>Uspješno ste logovani kao <?php print $user->nickname;?></h1>
@@ -18,4 +19,15 @@ $this->params['breadcrumbs'][] = $this->title;
   <?= Html::submitButton('Logout', array('name'=>'logout', 'class'=>'btn logout_button')); ?>
 </div>
 <?php ActiveForm::end(); ?>
+=======
+
+<div class="panel">
+				<?php $form = ActiveForm::begin(); ?>
+						<b>Dobrodošli ADMIN:</b> <i> <?php print $user->nickname; ?> </i>
+						<br>
+						<?= Html::submitButton('Logout', array('name'=>'logout', 'class'=>'login_button')); ?>
+						<hr>
+				<?php ActiveForm::end(); ?>
+
+>>>>>>> origin/master
 </div>
