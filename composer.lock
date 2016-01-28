@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1106380d95cadfccabc8f46a89ebb9e8",
+    "hash": "998afa533518a22adcc33f48447bd572",
     "content-hash": "06869dda4dadfad3a121ba18baa7d18c",
     "packages": [
         {
@@ -209,7 +209,8 @@
             },
             "license": [
                 "MIT"
-            ]
+            ],
+            "time": "2015-12-31 08:33:51"
         },
         {
             "name": "cebe/markdown",
@@ -374,12 +375,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "c7e457b3636b1e67fa7d71566e6748bc9a575328"
+                "reference": "c1c502ff2b792fac5470356373e243b77d2a36c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c7e457b3636b1e67fa7d71566e6748bc9a575328",
-                "reference": "c7e457b3636b1e67fa7d71566e6748bc9a575328",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c1c502ff2b792fac5470356373e243b77d2a36c7",
+                "reference": "c1c502ff2b792fac5470356373e243b77d2a36c7",
                 "shasum": ""
             },
             "require": {
@@ -460,7 +461,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2016-01-26 08:18:41"
+            "time": "2016-01-26 17:20:14"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -644,12 +645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "de2ed3bbe68254efeff68db60092fc8ed5298055"
+                "reference": "1039b239eaf5ea865ded8e403dc707da6a629474"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/de2ed3bbe68254efeff68db60092fc8ed5298055",
-                "reference": "de2ed3bbe68254efeff68db60092fc8ed5298055",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1039b239eaf5ea865ded8e403dc707da6a629474",
+                "reference": "1039b239eaf5ea865ded8e403dc707da6a629474",
                 "shasum": ""
             },
             "require": {
@@ -686,7 +687,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-01-08 14:16:18"
+            "time": "2016-01-27 08:28:58"
         },
         {
             "name": "phpspec/php-diff",

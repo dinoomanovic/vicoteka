@@ -59,14 +59,19 @@ class SiteController extends Controller
                 $user = Account::find()->where(['nickname'=>$model->username])->one();
 
                 if( $user && ($model->username == $user->nickname) && ($model->password == $user->password) ){
-
-                   return $this->render('success',['user'=>$user]);
+                  if($user->admin===0){
+                   return $this->render('userPanel',['user'=>$user]);
+                 }
+                 else if($user->admin===1)
+                 {
+                   return $this->render('adminPanel',['user'=>$user]);
+                 }
                 }
                 else{
 
                     return $this->render('fail');
                 }
-            }    
+            }
         }
     return $this->render('login',['model'=>$model]);
     }
@@ -81,6 +86,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -110,4 +116,9 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+public function actionCategory()
+{
+  return $this->render('category');
+}
 }
