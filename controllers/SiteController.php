@@ -54,12 +54,12 @@ class SiteController extends Controller
     public function actionAdmin($id){
 
         $user = Account::find()->where(['userID'=>$id])->one();
-       
+
        if (isset($_POST['logout'])) {
 
             $this->redirect('index.php?r=site/index');
-        } 
-       return $this->render('adminPanel',['user'=>$user]); 
+        }
+       return $this->render('adminPanel',['user'=>$user]);
 
     }
 
@@ -70,7 +70,7 @@ class SiteController extends Controller
         if (isset($_POST['logout'])) {
 
            $this->redirect('index.php?r=site/index');
-        } 
+        }
 
         else if (isset($_POST['categories'])) {
 
@@ -104,7 +104,7 @@ class SiteController extends Controller
                 $user = Account::find()->where(['nickname'=>$model->username])->one();
 
                 if( $user && ($model->username == $user->nickname) && ($model->password == $user->password) ){
-                              
+
                               if($user->admin === 0){
                                 //Yii::$app->runAction('site/user', $user->userID);
                                     return $this->redirect(array('site/user', 'id'=>$user->userID));
@@ -150,7 +150,7 @@ class SiteController extends Controller
             if(isset($_POST['login'])){
 
                 $this->redirect('index.php?r=site/log');
-        
+
         }
         if(isset($_POST['register'])){
 
@@ -207,10 +207,12 @@ public function actionCategory()
 
   if ($category->load(Yii::$app->request->post()) && $category->save()) {
 
+return $this->goHome();
 
-  return $this->render('category', [
-      'category' => $category,
-  ]);
 }
+else
+return $this->render('category', [
+    'category' => $category,
+]);
 }
 }
