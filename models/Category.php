@@ -17,7 +17,7 @@ class Category extends ActiveRecord
 public function rules()
 {
   return [
-      [['categoryID', 'name'], 'required', 'message' => 'Morate unijeti tražene podatke'],
+      [['name'], 'required', 'message' => 'Morate unijeti tražene podatke'],
       [['categoryID'], 'integer'],
       [['name'], 'string']
     ];

@@ -10,17 +10,22 @@ $this->title = 'Kreiraj kategoriju';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="posts-form">
+<div class="category">
+<br>
+<p align="center">
+  <?php $form = ActiveForm::begin() ?>
 
-  <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
 
-    <?= $form->field($category, 'categoryID')->textInput() ?>
 
-    <?= $form->field($category, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($category, 'name')->textInput(['autofocus'=>true]) ?>
+  </p>
+</br>
 
-    <div class="form-group">
-        <?= Html::submitButton($category->isNewRecord ? 'Kreiraj' : 'Izmjeni', ['class' => $category->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+  <p align="center" >
+  <?= Html::submitButton('Kreiraj' , ['class' =>  'btn btn-primary' ]) ?>
+</p>
+
 <?php ActiveForm::end(); ?>
+
 
 </div>

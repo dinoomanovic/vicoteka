@@ -121,6 +121,13 @@ class SiteController extends Controller
 public function actionCategory()
 {
   $category=new Category();
-  return $this->render('category',['category'=>$category]);
+
+  if ($category->load(Yii::$app->request->post()) && $category->save()) {
+
+
+  return $this->render('category', [
+      'category' => $category,
+  ]);
+}
 }
 }
