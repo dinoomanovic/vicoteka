@@ -13,7 +13,6 @@ use app\models\RegisterForm;
 use app\models\Account;
 use app\models\Category;
 use app\models\Joke;
-
 class SiteController extends Controller
 {
     public function behaviors()
@@ -204,6 +203,7 @@ class SiteController extends Controller
 
 public function actionCategory()
 {
-  return $this->render('category');
+  $category=new Category();
+  return $this->render('category',['category'=>$category]);
 }
 }
