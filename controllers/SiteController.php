@@ -8,9 +8,11 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LogForm;
 use app\models\ContactForm;
+use app\models\RegisterForm;
+
 use app\models\Account;
 use app\models\Category;
-
+use app\models\Joke;
 class SiteController extends Controller
 {
     public function behaviors()
@@ -49,7 +51,49 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex(){
+    public function actionAdmin($id){
+
+        $user = Account::find()->where(['userID'=>$id])->one();
+       
+       if (isset($_POST['logout'])) {
+
+            $this->redirect('index.php?r=site/index');
+        } 
+       return $this->render('adminPanel',['user'=>$user]); 
+
+    }
+
+    public function actionUser($id){
+
+        $user = Account::find()->where(['userID'=>$id])->one();
+
+        if (isset($_POST['logout'])) {
+
+           $this->redirect('index.php?r=site/index');
+        } 
+
+        else if (isset($_POST['categories'])) {
+
+            $this->redirect('index.php?r=site/categories');
+        }
+        return $this->render('userPanel',['user'=>$user]);
+
+    }
+
+    public function actionCategories(){
+
+        $categories = new Category();
+        $categories = Category::find()->all();
+
+        return $this->render('categories', ['categories'=>$categories]);
+    }
+
+    public function actionJoke(){
+
+
+    }
+
+    public function actionLog(){
         $user = new Account();
         $model = new LogForm();
 
@@ -60,13 +104,15 @@ class SiteController extends Controller
                 $user = Account::find()->where(['nickname'=>$model->username])->one();
 
                 if( $user && ($model->username == $user->nickname) && ($model->password == $user->password) ){
-                  if($user->admin===0){
-                   return $this->render('userPanel',['user'=>$user]);
-                 }
-                 else if($user->admin===1)
-                 {
-                   return $this->render('adminPanel',['user'=>$user]);
-                 }
+                              
+                              if($user->admin === 0){
+                                //Yii::$app->runAction('site/user', $user->userID);
+                                    return $this->redirect(array('site/user', 'id'=>$user->userID));
+                             }
+                             else if($user->admin === 1){
+                                    return $this->redirect(array('site/admin', 'id'=>$user->userID));
+                                //Yii::$app->runAction('site/admin', $user->userID);
+                             }
                 }
                 else{
 
@@ -75,6 +121,43 @@ class SiteController extends Controller
             }
         }
     return $this->render('login',['model'=>$model]);
+    }
+
+    public function actionRegister(){
+
+        $user = new Account();
+        $model = new RegisterForm();
+
+                    if( $model->load(Yii::$app->request->post()) && $model->validate() ){
+
+                        if(isset($_POST['save'])){
+
+                            $user->nickname = $model->nickname;
+                            $user->password = $model->password;
+                            $user->email = $model->email;
+                                $user->save();
+                            return $this->redirect(array('site/user', 'id'=>$user->userID) );
+                        }
+                    }
+    return $this->render('register', ['model'=>$model]);
+    }
+
+    public function actionIndex(){
+
+        $jokes = Joke::find()->all();
+        $categories = Category::find()->all();
+
+            if(isset($_POST['login'])){
+
+                $this->redirect('index.php?r=site/log');
+        
+        }
+        if(isset($_POST['register'])){
+
+                $this->redirect('index.php?r=site/register');
+        }
+
+    return $this->render('home', ['jokes'=>$jokes, 'categories'=>$categories]);
     }
 
     public function actionLogin()

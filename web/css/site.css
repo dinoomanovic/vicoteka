@@ -21,6 +21,11 @@ hr{
     padding: 70px 15px 20px;
 }
 
+.home{
+
+float: right;
+
+}
 .login{
 
     margin-top: 100px;
@@ -30,27 +35,110 @@ hr{
     height: 400px;
 }
 
+.panel {
+
+    float: right;
+    background-color: pink;
+}
+
 .login_button{
 
     color: white;
     font-weight: bolder;
-    background-color: blue;
+    background-color: #3366ff;
     width: 100px;
     height: 30px;
     border-style: none;
     //border-color: white;
-    //border-width: 3px;
+    border-width: 1px;
     border-radius: 5px;
+}
+
+.register_button{
+
+    color: white;
+    font-weight: bolder;
+    background-color: #65ff33;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
 }
 
 .login_button:hover{
 
-    color: blue;
-    border-style: groove;
-    background-color: white;
-    border-color: blue; 
+    //color: blue;
+    //border-style: groove;
+    background-color: #003eff;
+    //border-color: blue; 
 }
 
+.register_button:hover{
+
+    background-color: #2bb300;
+}
+
+.category_button{
+
+    color: white;
+    font-weight: bolder;
+    background-color: red;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    margin: 5px;
+}
+
+.category_button:hover{
+
+    //color: blue;
+    //border-style: groove;
+    background-color: orange;
+    //border-color: blue; 
+}
+
+.joke_page{
+
+    //background-color: yellow;
+}
+.joke_frame{
+
+    position: relative;
+    left: 15%;
+    width: 400px;
+    height: auto;
+    background-color: pink;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.joke_title{
+
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.joke_content{
+
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+.categories{
+
+    height: 1000px;
+    width: 230px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    //background-color: lightblue;
+    float: left;
+}
 .footer {
     height: 60px;
     background-color: #f5f5f5;
