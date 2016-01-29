@@ -7,10 +7,11 @@ use yii\captcha\Captcha;
 
 <div class="panel">
 				<?php $form = ActiveForm::begin(); ?>
-						<b>Dobrodošli ADMIN:</b> <i> <?php print $user->nickname; ?> </i>
-						<br>
-						<?= Html::submitButton('Logout', array('name'=>'logout', 'class'=>'login_button')); ?>
-						<hr>
+						<b>Logged in as ADMIN:</b> <i> <?php print $user->nickname; ?> </i>
+								<?= Html::submitButton('Logout', array('name'=>'logout', 'class'=>'login_button')); ?>
 				<?php ActiveForm::end(); ?>
 
 </div>
+</br>
+</br>
+<hr>
